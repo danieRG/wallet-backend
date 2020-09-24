@@ -1,0 +1,9 @@
+{
+  "name": "wallet-backend",
+  "version": "0.1.0",
+  "description": "api rest with node and express",
+  "apidoc": {
+    "title": "Api documentation for api",
+    "url" : "https://localhost:3001/v1"
+  }
+}

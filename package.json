@@ -1,0 +1,38 @@
+{
+  "name": "wallet-backend",
+  "version": "1.0.0",
+  "description": "A project for management money for excellent users",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha --timeout 10000",
+    "start": "nodemon server.js",
+    "config:db": "mysql -u root -p  < app/db/schemaDb.sql",
+    "docs": "node_modules/.bin/apidoc -i app/ -o docs/",
+    "full:install": "npm install && npm run config:db && npm run docs && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/danieRG/wallet-backend.git"
+  },
+  "keywords": [
+    "backend",
+    "wallet",
+    "transactions",
+    "didactical"
+  ],
+  "author": "Daniel Ruiz",
+  "license": "MIT",
+  "homepage": "https://www.linkedin.com/in/daniel-ruiz-93b1b3134/",
+  "devDependencies": {
+    "apidoc": "^0.17.6",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "morgan": "^1.8.2",
+    "mysql": "^2.13.0",
+    "nodemon": "^1.11.0",
+    "sha1": "^1.1.1"
+  },
+  "dependencies": {
+    "socket.io": "^2.0.1"
+  }
+}
