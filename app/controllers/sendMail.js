@@ -13,10 +13,10 @@ module.exports = {
 		});
 
 		var mailOptions = {
-			form: "remitente",
-			to:"ruizg92@gmail.com",
-			subject: "Enviado nodemail",
-			text: "Correo de prueba"
+			from: "Mi billetera",
+			to:req.body.email,
+			subject: "Notificacion Mi billetera",
+			text: "Correo de confirmación por la operación de "+req.body.operation+" por la cantidad de $"+req.body.quantity+" y tu token de confirmación es: "+req.body.token
 		}
 		transporter.sendMail(mailOptions, (error, info)=>{
 			if(error){

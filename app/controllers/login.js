@@ -31,7 +31,7 @@ var sha1 = require('sha1');
 module.exports = {
 
 	loginUser: function(req, res){
-		connection.query('select id,username,is_admin from users where username = ? AND password = ?', [req.body.username, sha1(req.body.password)] ,function(err, rows, fields){
+		connection.query('SELECT users.id,users.username,users.is_admin, user_details.name, user_details.email, user_details.phone, user_details.documento FROM users INNER JOIN user_details ON users.id = user_details.id_user where users.username = ? AND users.password = ?', [req.body.username, sha1(req.body.password)] ,function(err, rows, fields){
 			if(err != null){
 				console.log(err);
 				connection.end();

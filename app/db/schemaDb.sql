@@ -75,13 +75,16 @@ ALTER TABLE user_details ADD FOREIGN KEY (id_user) REFERENCES users(id);
 INSERT INTO users (username,password,is_admin) VALUES ('Daniel', sha1('password'), 0);
 INSERT INTO users (username,password,is_admin) VALUES ('Martin', sha1('password'), 0);
 
-INSERT INTO user_details (name,email,phone,id_user,documento) VALUES ('Daniel Ruiz', 9631332078, 1,'1a2b3c');
-INSERT INTO user_details (name,email,phone,id_user,documento) VALUES ('Martin Guillen', 9631332078, 2,'3c2b1a');
+INSERT INTO user_details (name,email,phone,id_user,documento) VALUES ('Daniel Ruiz', 'test@tst.com', 5555555555, 1,'1a2b3c');
+INSERT INTO user_details (name,email,phone,id_user,documento) VALUES ('Martin Guillen', 'test2@tst.com', 5555555555, 2,'3c2b1a');
+
 # Users admin
 
 INSERT INTO users (username,password,is_admin) VALUES ('admin', sha1('admin'), 1);
 INSERT INTO users (username,password,is_admin) VALUES ('admin2', sha1('admin2'), 1);
 
+INSERT INTO user_details (name,email,phone,id_user,documento) VALUES ('Administrador', 'admin@tst.com', 9999999999, 3,'');
+INSERT INTO user_details (name,email,phone,id_user,documento) VALUES ('Administrador2', 'admin2@tst.com', 9999999999, 4,'');
 # Wallet of users
 
 INSERT INTO wallet (id_user,money) VALUES (1, 100000);
