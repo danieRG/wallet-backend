@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var server = app.listen(8080);
 var io = require("socket.io").listen(server);
 var socket = require('./app/socket/socket');
-
+var sendmail = require('./app/controllers/sendMail');
 var users = require('./app/controllers/users'); 
 var login = require('./app/controllers/login');
 var requests = require('./app/controllers/requests');
@@ -32,32 +32,8 @@ var register = require('./app/controllers/register');
 
 	socket.start(io);	
 	
-	app.post("/send-email", (req, res) =>{
-		var transporter = nodemailer.createTransport({
-			host: "smtp.ethereal.email",
-			post: 587,
-			secure: false,
-			auth:{
-				user:"myah.little@ethereal.email",
-				pass:"TCJEj2fChc9kFFN1Wd"
-			}
-		});
-
-		var mailOptions = {
-			form: "remitente",
-			to:"danitest92R@gmail.com",
-			subject: "Enviado nodemail",
-			text: "Correo de prueba"
-		}
-		transporter.sendMail(mailOptions, (error, info)=>{
-			if(error){
-				res.status(500).send(error.message);
-			}else{
-				console.log("Mensaje enviado");
-				res.status(200).json(req.body);
-			}
-		})
-	});
+	app.route('/send-email')
+	.post(sendmail.sendMail);
 
 	app.route('/register')
 		.post(register.addUser);
